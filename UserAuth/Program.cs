@@ -21,7 +21,7 @@ builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddControllers()
        .AddApplicationPart(typeof(CompanyEmployees.Presentation.AssemblyReference).Assembly);
 builder.Services.AddAuthentication();
-/*builder.Services.ConfigureIdentity();*/
+builder.Services.ConfigureIdentity();
 builder.Services.ConfigureJWT(builder.Configuration);
 
 var app = builder.Build();
