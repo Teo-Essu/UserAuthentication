@@ -35,8 +35,10 @@ namespace UserAuth.Presentation.Controllers
         {
             if (!await _service.AuthenticationService.ValidateUser(user))
                 return Unauthorized();
+
+            var tokenDto = await _service.AuthenticationService.CreateToken(populateExp: true);
             
-            return Ok(new { Token = await _service.AuthenticationService.CreateToken() });
+            return Ok(tokenDto);
         }
     }
 }
